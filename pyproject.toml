@@ -1,0 +1,77 @@
+[project]
+name = "empirica"
+version = "1.0.1"
+description = "Modular Multi-Agent System for Scientific Research Assistance"
+authors = [
+  { name = "Pablo Villanueva-Domingo" },
+  { name = "Francisco Villaescusa-Navarro"},
+  { name = "Boris Bolliet"},
+]
+maintainers = [
+  { name = "Empirica", email = "empirica.astropilot.ai@gmail.com" },
+]
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+license = { text = "GPLv3" }
+keywords = ["machine learning","agent","biology","chemistry","cosmology","material sciences","llm"]
+dependencies = [
+  "langchain-google-genai",
+  "langchain-anthropic>=0.3.10",
+  "langchain-openai>=0.3.12",
+  "langgraph>=0.3.25",
+  "google-cloud-aiplatform",
+  "google-ai-generativelanguage>=0.6.17",
+  "flatbuffers>=24.12.23",
+  "filelock>=3.17.0",
+  "cmbagent>=0.0.1post63",
+  "pymupdf",
+  "pillow",
+  "jsonschema",
+  "futurehouse-client",
+  "json5",
+  "pip",
+]
+
+[project.urls]
+Homepage = "https://astropilot-ai.github.io/EmpiricaPaperPage/"
+Documentation = "https://empirica.readthedocs.io/en/latest/"
+Repository = "https://github.com/AstroPilot-AI/Empirica"
+
+[project.scripts]
+empirica = "empirica.cli:main"
+
+[project.optional-dependencies]
+app = ["empirica_app>=1.0.0"]
+docs = [
+  "mkdocs",
+  "mkdocstrings[python]",
+  "mkdocs-material>=9.6.12",
+  "mkdocs-jupyter>=0.25.1",
+  "mkdocs-git-committers-plugin-2>=2.5.0",
+]
+test = [
+  "pytest>=7.4.0",
+  "pytest-cov>=4.1.0",
+  "pytest-mock>=3.11.0",
+  "pytest-asyncio>=0.21.0",
+  "pytest-timeout>=2.1.0",
+  "faker>=19.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "integration: marks tests as integration tests",
+    "e2e: marks tests as end-to-end tests",
+    "slow: marks tests as slow running",
+]
