@@ -1,0 +1,12 @@
+{
+  "data_description": "Test data description with pandas and numpy. Data files: /data/sample.csv, /data/experiment.h5",
+  "idea": "Test research idea about analyzing time-series data patterns in sensor measurements",
+  "methodology": "1. Load data using pandas\n2. Analyze patterns with numpy\n3. Visualize results with matplotlib",
+  "results": "Results show significant findings. We found that the patterns exhibit 95% confidence. Analysis reveals key insights.",
+  "plot_paths": ["plot1.png", "plot2.png"],
+  "keywords": {
+    "domain": "machine learning",
+    "type": "time-series"
+  }
+}
+
