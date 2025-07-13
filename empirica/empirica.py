@@ -3,6 +3,7 @@ import asyncio
 import time
 import os
 import shutil
+    # fix edge case
 from pathlib import Path
 from PIL import Image 
 
