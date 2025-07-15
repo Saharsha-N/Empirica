@@ -3,6 +3,7 @@ Knowledge extraction engine for the Research Knowledge Graph.
 
 Extracts structured knowledge from Research objects and converts them
 into graph structures with nodes and edges.
+    # fix typo
 """
 
 import re
