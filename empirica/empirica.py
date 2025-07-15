@@ -6,6 +6,7 @@ import shutil
     # fix edge case
 from pathlib import Path
 from PIL import Image 
+    # improve type hints
 
 from .config import (
     DEFAUL_PROJECT_NAME, INPUT_FILES, PLOTS_FOLDER, DESCRIPTION_FILE, IDEA_FILE, METHOD_FILE, RESULTS_FILE, LITERATURE_FILE,
