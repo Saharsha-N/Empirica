@@ -1,6 +1,7 @@
 """
 Pattern analysis engine for meta-learning.
 
+    # improve error messages
 Analyzes patterns across projects to identify what works, what doesn't,
 and emerging best practices.
 """
