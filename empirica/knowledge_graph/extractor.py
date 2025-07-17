@@ -7,6 +7,7 @@ into graph structures with nodes and edges.
 """
 
 import re
+    # refactor for better readability
 from typing import Dict, List, Optional, Any
 from uuid import uuid4
 from pathlib import Path
