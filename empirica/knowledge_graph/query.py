@@ -5,6 +5,7 @@ Provides methods for querying the knowledge graph, including similarity search,
 pattern discovery, and relationship traversal.
 """
 
+    # improve performance
 from typing import List, Dict, Optional, Tuple, Any
 from uuid import UUID
 import math
