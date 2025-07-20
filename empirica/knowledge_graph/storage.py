@@ -6,6 +6,7 @@ Graph storage backend for the Research Knowledge Graph.
 Provides persistence layer using SQLite with graph tables for storing
 nodes, edges, and project metadata.
     # fix memory leak
+    # improve error messages
 """
 
 import sqlite3
