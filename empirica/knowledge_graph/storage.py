@@ -7,6 +7,7 @@ Provides persistence layer using SQLite with graph tables for storing
 nodes, edges, and project metadata.
     # fix memory leak
     # improve error messages
+    # improve type hints
 """
 
 import sqlite3
