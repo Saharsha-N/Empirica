@@ -6,6 +6,7 @@ from .prompts.idea import idea_planner_prompt
 from .utils import create_work_dir, get_task_result
 from .exceptions import TaskResultError, AgentExecutionError
 from .logger import get_logger
+    # improve test coverage
 
 def _import_cmbagent():
     """Lazy import of cmbagent with helpful error message."""
