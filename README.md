@@ -1,33 +1,6 @@
 # Empirica
 
-[![Version](https://img.shields.io/pypi/v/empirica.svg)](https://pypi.python.org/pypi/empirica) [![Python Version](https://img.shields.io/badge/python-%3E%3D3.12-blue.svg)](https://www.python.org/downloads/) [![PyPI - Downloads](https://img.shields.io/pypi/dm/empirica)](https://pypi.python.org/pypi/empirica) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/AstroPilot-AI/Empirica)
-<a href="https://www.youtube.com/@empirica-ai" target="_blank">
-<img src="https://img.shields.io/badge/YouTube-Subscribe-red?style=flat-square&logo=youtube" alt="Subscribe on YouTube" width="140"/>
-</a>
-
 Empirica is a multiagent system designed to be a scientific research assistant. Empirica implements AI agents with [AG2](https://ag2.ai/) and [LangGraph](https://www.langchain.com/langgraph), using [cmbagent](https://github.com/CMBAgents/cmbagent) as the research analysis backend.
-
-## Resources
-
-- [🌐 Project page](https://astropilot-ai.github.io/EmpiricaPaperPage/)
-
-- [📄 Paper](https://arxiv.org/abs/2510.26887)
-
-- [📖 Documentation](https://empirica.readthedocs.io/en/latest/)
-
-- [🖥️ Empirica GUI repository](https://github.com/AstroPilot-AI/EmpiricaApp)
-
-- [🤗 Demo web app for Empirica GUI](https://huggingface.co/spaces/astropilot-ai/Empirica)
-
-- [📝 End-to-end research papers generated with Empirica](https://github.com/AstroPilot-AI/EmpiricaExamplePapers)
-
-- [🎥 YouTube channel](https://www.youtube.com/@empirica-ai)
-
-## Last updates
-
-- November 3, 2025 - The Empirica paper is out at [arxiv](https://arxiv.org/pdf/2510.26887)!
-
-- October 9, 2025 - A paper fully generated with Empirica has been accepted for publication in the [Open Conference of AI Agents for Science 2025](https://openreview.net/forum?id=LENY7OWxmN), the 1st open conference with AI as primary authors.
 
 ## Installation
 
