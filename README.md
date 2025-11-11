@@ -1,210 +1,323 @@
 # Empirica
 
-[![Version](https://img.shields.io/pypi/v/empirica.svg)](https://pypi.python.org/pypi/empirica) [![Python Version](https://img.shields.io/badge/python-%3E%3D3.12-blue.svg)](https://www.python.org/downloads/) [![PyPI - Downloads](https://img.shields.io/pypi/dm/empirica)](https://pypi.python.org/pypi/empirica) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/AstroPilot-AI/Empirica)
-<a href="https://www.youtube.com/@empirica-ai" target="_blank">
-<img src="https://img.shields.io/badge/YouTube-Subscribe-red?style=flat-square&logo=youtube" alt="Subscribe on YouTube" width="140"/>
-</a>
+[![Version](https://img.shields.io/pypi/v/empirica.svg)](https://pypi.python.org/pypi/empirica) [![Python Version](https://img.shields.io/badge/python-%3E%3D3.12-blue.svg)](https://www.python.org/downloads/) [![PyPI - Downloads](https://img.shields.io/pypi/dm/empirica)](https://pypi.python.org/pypi/empirica) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Empirica is a multiagent system designed to be a scientific research assistant. Empirica implements AI agents with [AG2](https://ag2.ai/) and [LangGraph](https://www.langchain.com/langgraph), using [cmbagent](https://github.com/CMBAgents/cmbagent) as the research analysis backend.
+> **An intelligent multi-agent system that transforms scientific research workflows through AI-powered automation, knowledge graphs, and meta-learning capabilities.**
 
-## Resources
+Empirica is a comprehensive research assistant that automates the entire scientific research pipeline—from initial data analysis to generating publication-ready papers. Built with advanced AI agents, it combines multiple LLM backends with a sophisticated knowledge graph system that learns from past research to improve future outcomes.
 
-- [🌐 Project page](https://astropilot-ai.github.io/EmpiricaPaperPage/)
+## Why Empirica?
 
-- [📄 Paper](https://arxiv.org/abs/2510.26887)
+- **End-to-End Automation**: Transform raw data into complete research papers with minimal manual intervention
+- **Intelligent Knowledge Graph**: Builds a persistent knowledge base that captures relationships between ideas, methods, datasets, and results
+- **Meta-Learning System**: Learns from past projects to predict success, recommend methods, and avoid common pitfalls
+- **Reproducibility Built-In**: Automatic versioning, checkpointing, and provenance tracking for every experiment
+- **Multi-Backend Support**: Choose between fast LangGraph mode or detailed cmbagent mode for different use cases
+- **Smart Suggestions**: Get AI-powered recommendations at every stage of your research workflow
 
-- [📖 Documentation](https://empirica.readthedocs.io/en/latest/)
+## Key Features
 
-- [🖥️ Empirica GUI repository](https://github.com/AstroPilot-AI/EmpiricaApp)
+### 🤖 Multi-Agent Research Pipeline
+- **Idea Generation**: AI agents collaborate to generate and refine research ideas
+- **Methodology Development**: Automated creation of detailed research methodologies
+- **Experiment Execution**: Intelligent agents execute experiments and generate results
+- **Paper Writing**: Generate publication-ready papers in various journal styles
 
-- [🤗 Demo web app for Empirica GUI](https://huggingface.co/spaces/astropilot-ai/Empirica)
+### 🧠 Research Knowledge Graph
+- **Structured Knowledge**: Captures ideas, methods, datasets, tools, and results as interconnected nodes
+- **Similarity Search**: Find related past projects and learn from similar research
+- **Pattern Analysis**: Identify what works and what doesn't across your research portfolio
+- **Semantic Embeddings**: Advanced similarity matching using vector embeddings
 
-- [📝 End-to-end research papers generated with Empirica](https://github.com/AstroPilot-AI/EmpiricaExamplePapers)
+### 📊 Meta-Learning & Intelligence
+- **Success Prediction**: Predict project success probability before starting
+- **Method Recommendations**: Get AI-suggested methodologies based on past successes
+- **Failure Prevention**: Early warnings about potential issues based on historical patterns
+- **Execution Time Estimation**: Predict how long experiments will take
 
-- [🎥 YouTube channel](https://www.youtube.com/@empirica-ai)
+### 🔄 Reproducibility & Versioning
+- **Automatic Versioning**: Git-like version control for ideas, methods, and results
+- **Checkpoint System**: Save and restore experiment state at any point
+- **Provenance Tracking**: Complete audit trail of inputs, code, and configurations
+- **One-Click Reproduction**: Recreate any past project with a single command
 
-## Last updates
+### 💡 Intelligent Suggestions
+- **Context-Aware Recommendations**: Get suggestions tailored to your current research stage
+- **Tool Recommendations**: Discover useful tools and libraries for your domain
+- **Optimization Hints**: Receive suggestions for improving your methodology
+- **Warning System**: Alerts about potential issues before they become problems
 
-- November 3, 2025 - The Empirica paper is out at [arxiv](https://arxiv.org/pdf/2510.26887)!
+## Quick Start
 
-- October 9, 2025 - A paper fully generated with Empirica has been accepted for publication in the [Open Conference of AI Agents for Science 2025](https://openreview.net/forum?id=LENY7OWxmN), the 1st open conference with AI as primary authors.
-
-## Installation
-
-To install empirica create a virtual environment and pip install it. We recommend using Python 3.12:
+### Installation
 
 ```bash
-python -m venv Empirica_env
-source Empirica_env/bin/activate
+# Create virtual environment
+python -m venv empirica_env
+source empirica_env/bin/activate  # On Windows: empirica_env\Scripts\activate
+
+# Install Empirica
+pip install empirica
+```
+
+For the GUI application:
+```bash
 pip install "empirica[app]"
 ```
 
-Or alternatively install it with [uv](https://docs.astral.sh/uv/), initializing a project and installing it:
-
-```bash
-uv init
-uv add empirica[app]
-```
-
-Then, run the gui with:
-
-```
-empirica run
-```
-
-### Optional: Installing cmbagent
-
-`cmbagent` is an optional dependency that provides advanced planning and control for research analysis. The codebase works without it, but some features (like `get_results()` and `mode="cmbagent"`) require it. 
-
-**Note**: On Windows with Python 3.13, `cmbagent` installation may fail due to dependency build issues. We recommend using Python 3.12 for full compatibility. See [INSTALL_CMBAGENT.md](INSTALL_CMBAGENT.md) for detailed installation instructions and troubleshooting.
-
-## Get started
-
-Initialize a `Empirica` instance and describe the data and tools to be employed.
+### Basic Usage
 
 ```python
 from empirica import Empirica
 
-emp = Empirica(project_dir="project_dir")
+# Initialize Empirica
+emp = Empirica(project_dir="my_research_project")
 
-prompt = """
-Analyze the experimental data stored in data.csv using sklearn and pandas.
-This data includes time-series measurements from a particle detector.
-"""
+# Describe your data and tools
+emp.set_data_description("""
+    Analyze experimental data in data.csv using sklearn and pandas.
+    Dataset contains 1000 time-series measurements from a particle detector.
+""")
 
-emp.set_data_description(prompt)
-```
+# Generate research idea (fast mode using LangGraph)
+emp.get_idea(mode="fast")
 
-Generate a research idea from that data specification.
+# Generate methodology
+emp.get_method(mode="fast")
 
-```python
-emp.get_idea()
-```
-
-Generate the methodology required for working on that idea.
-
-```python
-emp.get_method()
-```
-
-With the methodology setup, perform the required computations and get the plots and results.
-
-```python
+# Execute experiments and get results (requires cmbagent)
 emp.get_results()
-```
 
-Finally, generate a latex article with the results. You can specify the journal style, in this example we choose the [APS (Physical Review Journals)](https://journals.aps.org/) style.
-
-```python
+# Generate publication-ready paper
 from empirica import Journal
-
 emp.get_paper(journal=Journal.APS)
 ```
 
-You can also manually provide any info as a string or markdown file in an intermediate step, using the `set_idea`, `set_method` or `set_results` methods. For instance, for providing a file with the methodology developed by the user:
+### GUI Application
 
-```python
-emp.set_method(path_to_the_method_file.md)
-```
-
-## EmpiricaApp
-
-You can run Empirica using a GUI through the [EmpiricaApp](https://github.com/AstroPilot-AI/EmpiricaApp).
-
-The app is already installed with `pip install "empirica[app]"`, otherwise install it with `pip install empirica_app` or `uv sync --extra app`.
-
-Then, launch the GUI with
+Launch the interactive web interface:
 
 ```bash
 empirica run
 ```
 
-Test a [deployed demo of the app in HugginFace Spaces](https://huggingface.co/spaces/astropilot-ai/Empirica).
+This starts a Streamlit-based GUI where you can manage your research projects visually.
 
-## Build from source
+## Advanced Features
 
-### pip
+### Knowledge Graph Integration
 
-You will need python 3.12 or higher installed. Clone Empirica:
+Empirica automatically builds a knowledge graph of your research:
+
+```python
+# Find similar past projects
+similar = emp.find_similar_projects("machine learning time series")
+
+# Get intelligent suggestions
+suggestions = emp.get_suggestions(stage="method")
+
+# Reproduce a past project
+reproduced = emp.reproduce_project(project_id="...")
+```
+
+### Version Control & Checkpoints
+
+```python
+# Automatic versioning happens during workflow
+# Access versions programmatically
+versions = emp.version_control.list_versions("idea")
+diff = emp.version_control.diff_versions("idea", v1=1, v2=2)
+
+# Manual checkpoints
+emp.checkpoint_manager.save_checkpoint("before_experiment")
+emp.checkpoint_manager.load_checkpoint("before_experiment")
+```
+
+### Meta-Learning Insights
+
+```python
+# Get predictions about your project
+success_prob = emp.meta_agent.models.predict_success(
+    idea="...",
+    method="...",
+    domain="machine learning"
+)
+
+# Get method recommendations
+recommendations = emp.meta_agent.models.recommend_methods(
+    idea="...",
+    domain="..."
+)
+```
+
+## Installation Options
+
+### Standard Installation
 
 ```bash
-git clone https://github.com/AstroPilot-AI/Empirica.git
+pip install empirica
+```
+
+### With GUI
+
+```bash
+pip install "empirica[app]"
+```
+
+### Development Installation
+
+```bash
+git clone https://github.com/Saharsha-N/Empirica.git
 cd Empirica
-```
-
-Create and activate a virtual environment
-
-```bash
-python3 -m venv Empirica_env
-source Empirica_env/bin/activate
-```
-
-And install the project
-
-```bash
 pip install -e .
 ```
 
-### uv
-
-You can also install the project using [uv](https://docs.astral.sh/uv/), just running:
+### Using uv
 
 ```bash
+uv add empirica
+# or for development
 uv sync
 ```
 
-which will create the virtual environment and install the dependencies and project. Activate the virtual environment if needed with
+## Optional Dependencies
+
+### cmbagent
+
+For advanced planning and detailed experiment execution, install `cmbagent`:
 
 ```bash
-source .venv/bin/activate
+pip install cmbagent>=0.0.1post63
+```
+
+**Note**: On Windows with Python 3.13, `cmbagent` installation may fail due to dependency build issues. We recommend using Python 3.12 for full compatibility. See [INSTALL_CMBAGENT.md](INSTALL_CMBAGENT.md) for detailed instructions.
+
+The codebase works without `cmbagent`—you can use `mode="fast"` for idea and method generation, which uses LangGraph instead.
+
+## Project Structure
+
+```
+empirica/
+├── empirica.py          # Main Empirica class
+├── idea.py              # Idea generation
+├── method.py            # Methodology generation
+├── experiment.py        # Experiment execution
+├── knowledge_graph/     # Knowledge graph system
+│   ├── models.py        # Graph data models
+│   ├── storage.py       # SQLite storage backend
+│   ├── extractor.py     # Knowledge extraction
+│   └── query.py         # Graph queries
+├── meta_learning/       # Meta-learning system
+│   ├── analyzer.py      # Pattern analysis
+│   ├── models.py        # Predictive models
+│   └── agent.py         # Meta-learning agent
+├── suggestions/         # Suggestion engine
+├── reproducibility/    # Versioning & checkpoints
+└── paper_agents/       # Paper generation
+```
+
+## Documentation
+
+- **Full Documentation**: [https://empirica.readthedocs.io/](https://empirica.readthedocs.io/)
+- **API Reference**: See `docs/api_ref/` for detailed API documentation
+- **Examples**: Check `examples/` directory for usage examples
+- **Tutorials**: Step-by-step guides in `docs/tutorials/`
+
+## Examples
+
+### Complete Workflow
+
+```python
+from empirica import Empirica, Journal
+
+# Initialize
+emp = Empirica(project_dir="research_project")
+
+# Set up data description
+emp.set_data_description("""
+    Dataset: sensor_data.csv
+    Tools: pandas, numpy, scikit-learn, matplotlib
+    Domain: Time-series analysis, Anomaly detection
+""")
+
+# Generate idea
+emp.get_idea(mode="fast")
+
+# Generate methodology
+emp.get_method(mode="fast")
+
+# Execute (requires cmbagent)
+emp.get_results(
+    engineer_model="gpt-4o",
+    researcher_model="gpt-4o"
+)
+
+# Generate paper
+emp.get_paper(journal=Journal.APS)
+```
+
+### Using Knowledge Graph
+
+```python
+# After running several projects, query the knowledge graph
+similar_projects = emp.find_similar_projects(
+    idea="time series anomaly detection"
+)
+
+# Get suggestions for your current project
+suggestions = emp.get_suggestions(stage="method")
+print(suggestions)
+
+# Access meta-learning insights
+insights = emp.meta_agent.get_insights()
+```
+
+## Testing
+
+Run the comprehensive test suite:
+
+```bash
+# Install test dependencies
+pip install -e ".[test]"
+
+# Run all tests
+pytest tests/
+
+# Run specific test categories
+pytest tests/test_unit/          # Unit tests
+pytest tests/test_integration/   # Integration tests
+pytest tests/test_e2e/          # End-to-end tests
 ```
 
 ## Docker
 
-You can run Empirica in a [Docker](https://www.docker.com/) image, which includes all the required dependencies for Empirica including LaTeX. Pull the image with:
+Run Empirica in a Docker container:
 
 ```bash
+# Pull the image
 docker pull pablovd/empirica:latest
-```
 
-Once built, you can run the GUI with
-
-```bash
+# Run GUI
 docker run -p 8501:8501 --rm pablovd/empirica:latest
-```
 
-or in interactive mode with
-
-```bash
+# Interactive mode
 docker run --rm -it pablovd/empirica:latest bash
 ```
 
-Share volumes with `-v $(pwd)/project:/app/project` for inputing data and accessing to it. You can also share the API keys with a `.env` file in the same folder with `-v $(pwd).env/app/.env`.
-
-You can also build an image locally with
-
-```bash
-docker build -f docker/Dockerfile.dev -t empirica_src .
-```
-
-Read more information on how to use the Docker images in the [documentation](https://empirica.readthedocs.io/en/latest/docker/).
+See the [Docker documentation](https://empirica.readthedocs.io/en/latest/docker/) for more details.
 
 ## Contributing
 
-Pull requests are welcome! Feel free to open an issue for bugs, comments, questions and suggestions.
-
-<!-- ## Citation
-
-If you use this library please link this repository and cite [arXiv:2506.xxxxx](arXiv:x2506.xxxxx). -->
+Contributions are welcome! Please feel free to submit a Pull Request or open an issue for bugs, questions, or suggestions.
 
 ## Citation
 
-If you make use of Empirica, please cite the following references:
+If you use Empirica in your research, please cite:
 
 ```bibtex
 @article{villaescusanavarro2025empiricaprojectdeepknowledge,
          title={The Empirica project: Deep knowledge AI agents for scientific discovery}, 
-         author={Francisco Villaescusa-Navarro and Boris Bolliet and Pablo Villanueva-Domingo and Adrian E. Bayer and Aidan Acquah and Chetana Amancharla and Almog Barzilay-Siegal and Pablo Bermejo and Camille Bilodeau and Pablo Cárdenas Ramírez and Miles Cranmer and Urbano L. França and ChangHoon Hahn and Yan-Fei Jiang and Raul Jimenez and Jun-Young Lee and Antonio Lerario and Osman Mamun and Thomas Meier and Anupam A. Ojha and Pavlos Protopapas and Shimanto Roy and David N. Spergel and Pedro Tarancón-Álvarez and Ujjwal Tiwari and Matteo Viel and Digvijay Wadekar and Chi Wang and Bonny Y. Wang and Licong Xu and Yossi Yovel and Shuwen Yue and Wen-Han Zhou and Qiyao Zhu and Jiajun Zou and Íñigo Zubeldia},
+         author={Francisco Villaescusa-Navarro and Boris Bolliet and Pablo Villanueva-Domingo and others},
          year={2025},
          eprint={2510.26887},
          archivePrefix={arXiv},
@@ -216,27 +329,30 @@ If you make use of Empirica, please cite the following references:
           author = {Pablo Villanueva-Domingo, Francisco Villaescusa-Navarro, Boris Bolliet},
           title = {Empirica: Modular Multi-Agent System for Scientific Research Assistance},
           year = {2025},
-          url = {https://github.com/AstroPilot-AI/Empirica},
-          note = {Available at https://github.com/AstroPilot-AI/Empirica},
+          url = {https://github.com/Saharsha-N/Empirica},
           version = {latest}
-          }
-
-@software{CMBAGENT_2025,
-          author = {Boris Bolliet},
-          title = {CMBAGENT: Open-Source Multi-Agent System for Science},
-          year = {2025},
-          url = {https://github.com/CMBAgents/cmbagent},
-          note = {Available at https://github.com/CMBAgents/cmbagent},
-          version = {latest}
-          }
+}
 ```
 
 ## License
 
 [GNU GENERAL PUBLIC LICENSE (GPLv3)](https://www.gnu.org/licenses/gpl-3.0.html)
 
-Empirica - Copyright (C) 2025 Pablo Villanueva-Domingo, Francisco Villaescusa-Navarro, Boris Bolliet
+Copyright (C) 2025 - Empirica Contributors
 
-## Contact and enquieries
+## Acknowledgments
 
-E-mail: [empirica.astropilot.ai@gmail.com](mailto:empirica.astropilot.ai@gmail.com)
+Empirica builds upon several excellent open-source projects:
+- [cmbagent](https://github.com/CMBAgents/cmbagent) - Multi-agent planning and control
+- [LangGraph](https://www.langchain.com/langgraph) - Agent orchestration
+- [LangChain](https://www.langchain.com/) - LLM integration framework
+
+## Support
+
+For questions, issues, or contributions:
+- **GitHub Issues**: [https://github.com/Saharsha-N/Empirica/issues](https://github.com/Saharsha-N/Empirica/issues)
+- **Documentation**: [https://empirica.readthedocs.io/](https://empirica.readthedocs.io/)
+
+---
+
+**Empirica** - Transforming scientific research through intelligent automation.
